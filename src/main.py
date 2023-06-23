@@ -14,6 +14,7 @@ def main():
   target_repo = os.environ["INPUT_TARGET-REPO"]
   usuario = os.environ["INPUT_USUARIO"]
   user_pass = os.environ["INPUT_USER-PASS"]
+  pull_number = os.environ["INPUT_PULL-NUMBER"]
   print("USUARIO: " + usuario)
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
@@ -41,16 +42,16 @@ def main():
   
   #github = Github(login_or_token="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")
   repo = user.get_repo('send-commit-action')
-  print("Cargando pull requests...")
-  pulls = repo.get_pulls()
-  pulls_numbers_list = []
-  for pull in pulls:
-    print("current pull: " + str(pull.number))
-    pulls_numbers_list.append(pull.number)
+  #print("Cargando pull requests...")
+  #pulls = repo.get_pulls()
+  #pulls_numbers_list = []
+  #for pull in pulls:
+  #  print("current pull: " + str(pull.number))
+  #  pulls_numbers_list.append(pull.number)
 
-  print("Pulls: " + str(len(pulls_numbers_list)))
-    
-  pr = repo.get_pull(pulls_numbers_list[0])
+  #print("Pulls: " + str(len(pulls_numbers_list)))
+  print("Recuperando Pull Request " + pull_number)
+  pr = repo.get_pull(int(pull_number))
 
   commits = pr.get_commits()
 
@@ -61,6 +62,8 @@ def main():
         print("nombre fichero: " + filename)
         contents = repo.get_contents(filename, ref=commit.sha).decoded_content
         print("contenido: " + contents)
+    print("No hay más ficheros")
+  print("No hay más commits")
 
   #Set the output value
   print(f"::set-output name=result::{result}")
