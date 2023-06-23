@@ -1,5 +1,4 @@
 import os
-import Github
 
 def main():
   #Get inputs values
