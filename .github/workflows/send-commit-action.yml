@@ -1,5 +1,8 @@
 name: SEND-COMMIT
-on: workflow_dispatch
+#on: workflow_dispatch
+on:
+  pull_request:
+    types: [open]
 jobs:
   send-commit-action:
     runs-on: ubuntu-latest
