@@ -1,5 +1,6 @@
 import os
 from github import Github
+from github_token import GITHUB_TOKEN, user, password
 
 def main():
   #Get inputs values
@@ -9,24 +10,33 @@ def main():
   author = os.environ["INPUT_COMMITS-AUTHOR"]
   source_repo = os.environ["INPUT_SOURCE-REPO-PULL-REQUEST"]
   target_repo = os.environ["INPUT_TARGET-REPO"]
+  usuario = os.environ["SECRET_USUARIO"]
+  user_pass = os.environ["SECRET_USER-PASS"]
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
   print("Conectando al repo...")
 
-  g1 = Github("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")
-  
-  #Get repositories for an organization
-  org = g1.get_organization('tutantest')
-  repos = org.get_repos()
+  #g1 = Github(GITHUB_TOKEN)
+  g2 = Github(usuario, user_pass)
+  user = g2.get_user()
+  repositories = user.get_repos()
   repos_id_list=[]
-  for repo in repos:
+  for repo in repositories:
     print("repo: " + repo.id)
     repos_id_list.append(repo.id)
   
+  #Get repositories for an organization
+  #org = g1.get_organization('tutantest')
+  #repos = org.get_repos()
+  #repos_id_list=[]
+  #for repo in repos:
+  #  print("repo: " + repo.id)
+  #  repos_id_list.append(repo.id)
+  
   #github = Github(login_or_token="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")
-  repo = org.get_repo('send-commit-action')
+  repo = user.get_repo('send-commit-action')
   print("Cargando pull requests...")
-  pulls = repo.get_pulls()
+  pulls = user.get_pulls()
   pulls_numbers_list = []
   for pull in pulls:
     print("current pull: " + pull.number)
