@@ -12,7 +12,7 @@ def main():
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
 
-  github = Github(token="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")
+  github = Github(login_or_token="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")
   repo = github.get_repo("tutantest/back-mirror-test", lazy=False)
 
   pr = repo.get_pull(1)
