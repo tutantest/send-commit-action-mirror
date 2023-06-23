@@ -12,5 +12,7 @@ jobs:
           commits-author: "usuario_prueba"
           source-repo-pull-request: "source-repo"
           target-repo: "repositorio destino"
+          usuario: ${{ secret.USUARIO }}
+          user-pass: ${{ secret.USER_PASS }}
       - name: Result
         run: echo ${{ steps.send-commit.outputs.result }}
