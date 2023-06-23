@@ -16,8 +16,6 @@ inputs:
     required: true
   usuario:
     required: true
-  user-pass:
-    required: true
   pull-number:
     required: true
 
