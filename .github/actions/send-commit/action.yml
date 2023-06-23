@@ -1,0 +1,29 @@
+name: send-commit-action
+
+author: afajardo
+
+description: action for send all commits in an open pull request to a mirror repository for committing using common author
+
+inputs:
+  commits-author: 
+    description: the name for the common author for committing in the target repository
+    required: true
+    default: common-user
+  source-repo-pull-request:
+    description: the pull request openned in the source repo that contains the changed/added/deleted files for sending to target repository
+  target-repo:
+    description: organizacion_name/repo_name where commit the changed/added/deleted files
+    required: true
+
+outputs:
+  result:
+    description: result string
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+	icon: 'rotate-cw'
+	color: 'blue'
+  
