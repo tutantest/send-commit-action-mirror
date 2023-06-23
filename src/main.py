@@ -10,14 +10,14 @@ def main():
   author = os.environ["INPUT_COMMITS-AUTHOR"]
   source_repo = os.environ["INPUT_SOURCE-REPO-PULL-REQUEST"]
   target_repo = os.environ["INPUT_TARGET-REPO"]
-  usuario = os.environ["SECRET_USUARIO"]
-  user_pass = os.environ["SECRET_USER-PASS"]
+  #usuario = os.environ["SECRET_USUARIO"]
+  #user_pass = os.environ["SECRET_USER-PASS"]
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
   print("Conectando al repo...")
 
   #g1 = Github(GITHUB_TOKEN)
-  g2 = Github(usuario, user_pass)
+  g2 = Github("tutantest", "Arkham@3380")
   user = g2.get_user()
   repositories = user.get_repos()
   repos_id_list=[]
