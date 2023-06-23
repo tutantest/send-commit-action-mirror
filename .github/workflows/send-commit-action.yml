@@ -1,5 +1,5 @@
 name: SEND-COMMIT
-on: workflow_call
+on: [pull]
 jobs:
   send-commit-action:
     runs-on: ubuntu-latest
