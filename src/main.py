@@ -24,7 +24,7 @@ def main():
   repos_id_list=[]
   for repo in repos:
     print("repo: " + repo.id)
-	  repos_id_list.append(repo.id)
+    repos_id_list.append(repo.id)
   
   #github = Github(login_or_token="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")
   repo = org.get_repo('send-commit-action')
