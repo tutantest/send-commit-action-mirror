@@ -3,5 +3,5 @@ FROM python:3
 COPY . .
 
 RUN pip3 install PyGithub
-RUN pip install github-token-app
+RUN pip3 install github-token
 CMD ["python", "./src/main.py"]
