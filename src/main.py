@@ -15,7 +15,7 @@ def main():
   github = Github(login_or_token="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")
   repo = github.get_repo("tutantest/back-mirror-test", lazy=False)
 
-  pr = repo.get_pull(1)
+  pr = repo.get_pull(2)
 
   commits = pr.get_commits()
 
