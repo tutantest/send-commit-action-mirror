@@ -28,7 +28,7 @@ def main():
   repositories = user.get_repos()
   repos_id_list=[]
   for repo in repositories:
-    print("repo: " + repo.id)
+    print("repo: " + str(repo.id))
     repos_id_list.append(repo.id)
   
   #Get repositories for an organization
