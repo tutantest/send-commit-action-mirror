@@ -18,6 +18,8 @@ inputs:
     required: true
   user-pass:
     required: true
+  pull-number:
+    required: true
 
 outputs:
   result:
