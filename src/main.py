@@ -13,15 +13,15 @@ def main():
   source_repo = os.environ["INPUT_SOURCE-REPO-PULL-REQUEST"]
   target_repo = os.environ["INPUT_TARGET-REPO"]
   usuario = os.environ["INPUT_USUARIO"]
-  user_pass = os.environ["INPUT_USER-PASS"]
   pull_number = os.environ["INPUT_PULL-NUMBER"]
   print("USUARIO: " + usuario)
+  print("PR: " + pull_number)
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
   print("Conectando al repo...")
 
   # using an access token
-  g = Github("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")
+  g = Github(usuario)
     
   #g = Github(GITHUB_TOKEN)
   #g = Github(usuario, user_pass)
@@ -51,7 +51,7 @@ def main():
 
   #print("Pulls: " + str(len(pulls_numbers_list)))
   print("Recuperando Pull Request " + pull_number)
-  pr = repo.get_pull(int(pull_number))
+  pr = repo.get_pull(pull_number)
 
   commits = pr.get_commits()
 
