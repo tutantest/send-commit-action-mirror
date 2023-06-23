@@ -28,7 +28,7 @@ def main():
   repositories = user.get_repos()
   repos_id_list=[]
   for repo in repositories:
-    print("repo: " + str(repo.id))
+    print("repo: " + repo.name)
     repos_id_list.append(repo.id)
   
   #Get repositories for an organization
@@ -42,7 +42,7 @@ def main():
   #github = Github(login_or_token="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")
   repo = user.get_repo('send-commit-action')
   print("Cargando pull requests...")
-  pulls = user.get_pulls()
+  pulls = repo.get_pulls()
   pulls_numbers_list = []
   for pull in pulls:
     print("current pull: " + pull.number)
