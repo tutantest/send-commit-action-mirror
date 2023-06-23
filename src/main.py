@@ -12,8 +12,9 @@ def main():
   author = os.environ["INPUT_COMMITS-AUTHOR"]
   source_repo = os.environ["INPUT_SOURCE-REPO-PULL-REQUEST"]
   target_repo = os.environ["INPUT_TARGET-REPO"]
-  usuario = os.environ["SECRET_USUARIO"]
-  user_pass = os.environ["SECRET_USER-PASS"]
+  usuario = os.environ["INPUT_USUARIO"]
+  user_pass = os.environ["INPUT_USER-PASS"]
+  print("USUARIO: " + usuario)
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
   print("Conectando al repo...")
