@@ -1,6 +1,6 @@
 import os
 from github import Github
-from github_token import GITHUB_TOKEN, user, password
+from github_token import user, password
 
 def main():
   #Get inputs values
