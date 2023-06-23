@@ -12,8 +12,22 @@ def main():
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
   print("Conectando al repo...")
-  github = Github(login_or_token="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")
-  repo = github.get_repo("tutantest/back-mirror-test", lazy=False)
+
+  g1 = Github("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")
+
+  #Get repositories for authenticated user
+  repositories = user.get_repos()
+
+  #Get repositories for an organization
+  org = g1.get_organization('coala')
+  repos = org.get_repos()
+  repos_id_list=[]
+  for repo in repos:
+    print("repo: " + repo.id)
+	  repos_id_list.append(repo.id)
+  
+  #github = Github(login_or_token="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")
+  repo = org.get_repo('send-commit-action')
   print("Cargando pull requests...")
   pulls = repo.get_pulls()
   pulls_numbers_list = []
