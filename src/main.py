@@ -14,12 +14,9 @@ def main():
   print("Conectando al repo...")
 
   g1 = Github("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")
-
-  #Get repositories for authenticated user
-  repositories = user.get_repos()
-
+  
   #Get repositories for an organization
-  org = g1.get_organization('coala')
+  org = g1.get_organization('tutantest')
   repos = org.get_repos()
   repos_id_list=[]
   for repo in repos:
