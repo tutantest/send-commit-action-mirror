@@ -14,6 +14,11 @@ inputs:
   target-repo:
     description: organizacion_name/repo_name where commit the changed/added/deleted files
     required: true
+secrets:
+  usuario:
+    required: true
+  user-pass:
+    required: true
 
 outputs:
   result:
