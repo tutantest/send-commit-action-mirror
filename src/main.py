@@ -1,6 +1,6 @@
 import os
 from github import Github
-import github_token
+#import github_token
 #from github_token import GITHUB_TOKEN, user, password
 
 
@@ -19,9 +19,12 @@ def main():
   result = author + " - " + source_repo + " - " + target_repo
   print("Conectando al repo...")
 
-  #g1 = Github(GITHUB_TOKEN)
-  g2 = Github(usuario, user_pass)
-  user = g2.get_user()
+  # using an access token
+  g = Github("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")
+    
+  #g = Github(GITHUB_TOKEN)
+  #g = Github(usuario, user_pass)
+  user = g.get_user()
   repositories = user.get_repos()
   repos_id_list=[]
   for repo in repositories:
