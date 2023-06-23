@@ -13,7 +13,6 @@ jobs:
           source-repo-pull-request: "source-repo"
           target-repo: "repositorio destino"
           usuario: ${{ secrets.USUARIO }}
-          user-pass: ${{ secrets.USER_PASS }}
           pull-number: ${{ github.event.issue.number }}
       - name: Result
         run: echo ${{ steps.send-commit.outputs.result }}
