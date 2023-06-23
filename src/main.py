@@ -45,7 +45,7 @@ def main():
   pulls = repo.get_pulls()
   pulls_numbers_list = []
   for pull in pulls:
-    print("current pull: " + pull.number)
+    print("current pull: " + str(pull.number))
     pulls_numbers_list.append(pull.number)
 
   print("Pulls: " + str(len(pulls_numbers_list)))
