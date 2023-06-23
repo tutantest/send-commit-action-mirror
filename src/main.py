@@ -20,6 +20,8 @@ def main():
   for pull in pulls:
     print("current pull: " + pull.number)
     pulls_numbers_list.append(pull.number)
+
+  print("Pulls: " + len(pulls_number_list))
     
   pr = repo.get_pull(pulls_numbers_list[0])
 
