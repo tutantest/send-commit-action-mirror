@@ -11,11 +11,17 @@ def main():
   target_repo = os.environ["INPUT_TARGET-REPO"]
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
-
+  print("Conectando al repo...")
   github = Github(login_or_token="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")
   repo = github.get_repo("tutantest/back-mirror-test", lazy=False)
-
-  pr = repo.get_pull(2)
+  print("Cargando pull requests...")
+  pulls = repo.get_pulls()
+  pulls_numbers_list = []
+  for pull in pulls:
+    print("current pull: " + pull.number)
+    pulls_numbers_list.append(pull.number)
+    
+  pr = repo.get_pull(pulls_numbers_list[0])
 
   commits = pr.get_commits()
 
