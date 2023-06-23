@@ -1,0 +1,16 @@
+name: SEND-COMMIT
+on: workflow_call
+jobs:
+  send-commit-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Send-Commit
+        uses: ./.github/actions/docker
+        id: send-commit
+        with:
+          commits-author: "usuario_prueba"
+          source-repo-pull-request: "source-repo"
+          target-repo: "repositorio destino"
+      - name: Result
+        run: echo ${{ steps.send-commit.outputs.result }}
