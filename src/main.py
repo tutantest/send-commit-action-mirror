@@ -80,7 +80,7 @@ def main():
       print("Archivos de la Pull Request:")
       for archivo in archivos:
         ruta_completa = archivo['filename']
-        print(ruta_completa)
+        print("Ruta Completa: ", ruta_completa)
     else:
       print("No hay archivos modificados en la Pull Request")
   else:
