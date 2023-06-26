@@ -69,7 +69,7 @@ def main():
   #      print(content)
   #  print("No hay más ficheros")
   #print("No hay más commits")
-  url = f'https://api.github.com/repos/{source_repository}/pulls/{pull_number}/files'
+  url = f'https://api.github.com/repos/{source_repository.fullname}/pulls/{pull_number}/files'
   print(url)
   headers = {'Authorization':f'token {usuario}'}
   print(headers)
