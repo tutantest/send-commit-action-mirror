@@ -1,5 +1,6 @@
 import os
 from github import Github
+import requests
 #import github_token
 #from github_token import GITHUB_TOKEN, user, password
 
@@ -58,16 +59,30 @@ def main():
 
   commits = pr.get_commits()
 
-  for commit in commits:
-    files = commit.files
-    for file in files:
-        filename = file.filename
-        print("nombre fichero: " + filename)
-        content = source_repository.get_contents(filename, ref=commit.sha).decoded_content
-        print("contenido: " + content.decode("utf-8"))
-        print(content)
-    print("No hay más ficheros")
-  print("No hay más commits")
+  #for commit in commits:
+  #  files = commit.files
+  #  for file in files:
+  #      filename = file.filename
+  #      print("nombre fichero: " + filename)
+  #      content = source_repository.get_contents(filename, ref=commit.sha).decoded_content
+  #      print("contenido: " + content.decode("utf-8"))
+  #      print(content)
+  #  print("No hay más ficheros")
+  #print("No hay más commits")
+  url = f'https://api.github.com/repos/{source_repository}/pulls/{pull_number}/files'
+  headers = {'Authorization':f'token {usuario}'} if usuario else {}
+  response = requests.get(url, headers=headers)
+  if response.status_code == 200:
+    archivos = response.json()
+    if archivos:
+      print("Archivos de la Pull Request:")
+      for archivo in archivos:
+        ruta_completa = archivo['filename']
+        print(ruta_completa)
+    else:
+      print("No hay archivos modificados en la Pull Request")
+  else:
+    print("Error al obtener los archivos de la Pull Request: ", response.status_code)
 
   #Set the output value
   print(f"::set-output name=result::{result}")
