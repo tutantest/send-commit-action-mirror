@@ -52,7 +52,7 @@ def main():
   #  pulls_numbers_list.append(pull.number)
 
   #print("Pulls: " + str(len(pulls_numbers_list)))
-  print("Recuperando Pull Request " + pull_number)
+  print("Recuperando Pull Request " + str(pull_number))
   #pr = repo.get_pull(pull_number)
   pr = source_repository.get_pull(pull_number)
   
