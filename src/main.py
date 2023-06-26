@@ -54,7 +54,7 @@ def main():
   #print("Pulls: " + str(len(pulls_numbers_list)))
   #print("Recuperando Pull Request " + str(pull_number))
   #pr = repo.get_pull(pull_number)
-  pr = source_repository.get_pull(pull_number)
+  pr = source_repository.get_pull(int(pull_number))
   
 
   commits = pr.get_commits()
