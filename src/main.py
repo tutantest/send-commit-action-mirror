@@ -16,7 +16,6 @@ def main():
   #pull_number = os.environ["INPUT_PULL-NUMBER"]
   pull_number = 6
   print("USUARIO: " + usuario)
-  print("PR: " + pull_number)
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
   print("Conectando al repo...")
