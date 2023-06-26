@@ -40,7 +40,7 @@ def main():
   #  print("repo: " + repo.id)
   #  repos_id_list.append(repo.id)
   
-  #github = Github(login_or_token="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")
+  #github = Github(login_or_token="TOKEN")
   source_repository = user.get_repo(source_repo)
   target_repository = user.get_repo(target_repo)
   #print("Cargando pull requests...")
@@ -63,7 +63,7 @@ def main():
     for file in files:
         filename = file.filename
         print("nombre fichero: " + filename)
-        content = source_repository.get_contents(file.path, ref=commit.sha).decoded_content
+        content = source_repository.get_contents(file, ref=commit.sha).decoded_content
         full_path = file.path
         print("full_path: " + full_path)
         print("contenido: " + content.decode("utf-8"))
