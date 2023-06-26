@@ -41,7 +41,8 @@ def main():
   #  repos_id_list.append(repo.id)
   
   #github = Github(login_or_token="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")
-  repo = user.get_repo('send-commit-action')
+  source_repository = user.get_repo(source_repo)
+  target_repository = user.get_repo(target_repo)
   #print("Cargando pull requests...")
   #pulls = repo.get_pulls()
   #pulls_numbers_list = []
@@ -52,7 +53,7 @@ def main():
   #print("Pulls: " + str(len(pulls_numbers_list)))
   print("Recuperando Pull Request " + pull_number)
   #pr = repo.get_pull(pull_number)
-  pr = repo.get_pull(5)
+  pr = source_repository.get_pull(int(pull_number))
   
 
   commits = pr.get_commits()
@@ -62,7 +63,7 @@ def main():
     for file in files:
         filename = file.filename
         print("nombre fichero: " + filename)
-        contents = repo.get_contents(filename, ref=commit.sha).decoded_content
+        contents = source_repository.get_contents(filename, ref=commit.sha).decoded_content
         print("contenido: " + contents.decode("utf-8"))
     print("No hay más ficheros")
   print("No hay más commits")
