@@ -64,9 +64,8 @@ def main():
         filename = file.filename
         print("nombre fichero: " + filename)
         content = source_repository.get_contents(file, ref=commit.sha).decoded_content
-        full_path = file.path
-        print("full_path: " + full_path)
         print("contenido: " + content.decode("utf-8"))
+        print("contenido: " + content)
     print("No hay más ficheros")
   print("No hay más commits")
 
