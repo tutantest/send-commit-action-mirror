@@ -20,4 +20,6 @@ jobs:
           usuario: ${{ secrets.USUARIO }}
           pull-number: ${{ github.event.number }}
       - name: Result
-        run: echo ${{ steps.send-commit.outputs.result }}
+        run: |
+          echo ${{ steps.send-commit.outputs.result }}
+          echo ${{ github.event }}
