@@ -22,4 +22,4 @@ jobs:
       - name: Result
         run: |
           echo ${{ steps.send-commit.outputs.result }}
-          echo ${{ toJson(github) }}
+#echo ${{ toJson(github) }}
