@@ -81,6 +81,7 @@ def main():
       for archivo in archivos:
         ruta_completa = archivo['filename']
         print("Ruta Completa: ", ruta_completa)
+        print("Estado fichero: ", archivo['status'])
     else:
       print("No hay archivos modificados en la Pull Request")
   else:
