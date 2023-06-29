@@ -18,6 +18,6 @@ jobs:
           source-repo-pull-request: "send-commit-action"
           target-repo: "back-mirror-test"
           usuario: ${{ secrets.USUARIO }}
-          pull-number: ${{ github.event.issue.number }}
+          pull-number: ${{ github.event.number }}
       - name: Result
         run: echo ${{ steps.send-commit.outputs.result }}

@@ -14,8 +14,8 @@ def main():
   source_repo = os.environ["INPUT_SOURCE-REPO-PULL-REQUEST"]
   target_repo = os.environ["INPUT_TARGET-REPO"]
   usuario = os.environ["INPUT_USUARIO"]
-  #pull_number = os.environ["INPUT_PULL-NUMBER"]
-  pull_number = 6
+  pull_number = os.environ["INPUT_PULL-NUMBER"]
+  print(pull_number)
   print("USUARIO: " + usuario)
   result = ""
   result = author + " - " + source_repo + " - " + target_repo
@@ -52,9 +52,9 @@ def main():
   #  pulls_numbers_list.append(pull.number)
 
   #print("Pulls: " + str(len(pulls_numbers_list)))
-  print("Recuperando Pull Request " + str(pull_number))
+  #print("Recuperando Pull Request " + str(pull_number))
   #pr = repo.get_pull(pull_number)
-  pr = source_repository.get_pull(pull_number)
+  pr = source_repository.get_pull(int(pull_number))
   
 
   commits = pr.get_commits()
@@ -80,7 +80,7 @@ def main():
       print("Archivos de la Pull Request:")
       for archivo in archivos:
         ruta_completa = archivo['filename']
-        print(ruta_completa)
+        print("Ruta Completa: ", ruta_completa)
     else:
       print("No hay archivos modificados en la Pull Request")
   else:
