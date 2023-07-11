@@ -1,4 +1,5 @@
 import os
+import shutil
 from github import Github
 import requests
 #import github_token
@@ -85,6 +86,13 @@ def main():
       print("No hay archivos modificados en la Pull Request")
   else:
     print("Error al obtener los archivos de la Pull Request: ", response.status_code)
+
+  if len(archivos) != 0:
+    os.mkdir("../../commits_files")
+    for archivo in archivos:
+        ruta_completa = archivo['filename']
+        nombre_archivo = archivo['name']
+        shutil.copy(ruta_completa,"../../commits_files/"+nombre_archivo)
 
   #Set the output value
   print(f"::set-output name=result::{result}")
