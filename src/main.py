@@ -91,8 +91,13 @@ def main():
   if len(archivos) != 0:
     os.mkdir("../../commits_files")
     for archivo in archivos:
+        nombre_archivo = ""
         ruta_completa = archivo['filename']
-        nombre_archivo = archivo['name']
+        if "/" in ruta_completa:
+          trozos = ruta_completa.split("/")
+          nombre_archivo = trozos[-1]
+        else:
+          nombre_archivo = ruta_completa
         shutil.copy(ruta_completa,"../../commits_files/"+nombre_archivo)
 
   #Set the output value
