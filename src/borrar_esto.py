@@ -1,0 +1,2 @@
+def borrar():
+  print("borrar")
