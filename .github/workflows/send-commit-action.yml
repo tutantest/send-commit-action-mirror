@@ -21,7 +21,7 @@ jobs:
         with:
           commits-author: "usuario_prueba"
           source-repo-pull-request: "send-commit-action"
-          target-repo: "back-mirror-test"
+          target-repo: "send-commit-action-mirror"
           usuario: ${{ secrets.USUARIO }}
           pull-number: ${{ github.event.number }}
       - name: Result
